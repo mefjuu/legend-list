@@ -222,7 +222,7 @@ export const KeyboardAvoidingLegendList = (forwardRef as TypedForwardRef)(functi
               }),
               [styleProp, keyboardInset],
           )
-        : undefined;
+        : styleProp;
 
     return (
         <AnimatedLegendList
