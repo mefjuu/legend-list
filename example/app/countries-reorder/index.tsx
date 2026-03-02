@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Pressable, StatusBar, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import { LegendList } from "@legendapp/list";
@@ -34,20 +34,18 @@ type ItemProps = {
 };
 
 const Item = ({ item, onPress, isSelected }: ItemProps) => (
-    <Pressable
-        onPress={onPress}
-        style={({ pressed }) => [styles.item, isSelected && styles.selectedItem, pressed && styles.pressedItem]}
-    >
+    <View>
         <View style={styles.flagContainer}>
             <Text style={styles.flag}>{item.flag}</Text>
         </View>
+        <TextInput style={{borderWidth: 1, margin: 5, borderColor: 'gray'}}/>
         <View style={styles.contentContainer}>
             <Text style={[styles.title, isSelected && styles.selectedText]}>
                 {item.name}
                 <Text style={styles.countryCode}> ({item.id})</Text>
             </Text>
         </View>
-    </Pressable>
+    </View>
 );
 
 const App = () => {
